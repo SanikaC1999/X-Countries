@@ -5,7 +5,6 @@ export default function App() {
   const [countries, setCountries] = useState([]);
 
   useEffect(() => {
-    try {
       fetch("https://restcountries.com/v2/all")
         .then((res) => {
           if (!res.ok) {
@@ -13,10 +12,10 @@ export default function App() {
           }
           return res.json();
         })
-        .then((data) => setCountries(data));
-    } catch (error) {
+        .then((data) => setCountries(data))
+        . catch ((error) => {
       console.log(error);
-    }
+    })
   }, []);
 
   return (
