@@ -12,7 +12,7 @@ function App() {
         .then((res) => res.json())
         .then((data) => setCountries(data));
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   }, []);
 
