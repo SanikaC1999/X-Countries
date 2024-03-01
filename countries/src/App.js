@@ -6,15 +6,10 @@ export default function App() {
 
   useEffect(() => {
       fetch("https://restcountries.com/v2/all")
-        .then((res) => {
-          if (!res.ok) {
-            throw new Error("Network response was not ok");
-          }
-          return res.json();
-        })
+        .then((res) => res.json())
         .then((data) => setCountries(data))
-        . catch ((error) => {
-      console.error("Error fetching countries:", error);
+        . catch ((err) => {
+      console.error("Error fetching countries:", err);
     })
   }, []);
 
