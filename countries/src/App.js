@@ -12,7 +12,7 @@ function App() {
         .then((res) => res.json())
         .then((data) => setCountries(data));
     } catch (error) {
-      console.error(error);
+      console.error("API failure" ,error);
     }
   }, []);
 
