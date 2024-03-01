@@ -14,7 +14,7 @@ export default function App() {
         })
         .then((data) => setCountries(data))
         . catch ((error) => {
-      console.log(error);
+      console.error(error);
     })
   }, []);
 
