@@ -1,18 +1,21 @@
-import logo from './logo.svg';
 import './App.css';
 import { useEffect, useState } from "react";
 
-
-function App() {
+export default function App() {
   const [countries, setCountries] = useState([]);
 
   useEffect(() => {
     try {
       fetch("https://restcountries.com/v2/all")
-        .then((res) => res.json())
+        .then((res) => {
+          if (!res.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return res.json();
+        })
         .then((data) => setCountries(data));
     } catch (error) {
-      console.error("API failure" ,error);
+      console.log(error);
     }
   }, []);
 
@@ -25,7 +28,5 @@ function App() {
         </div>
       ))}
     </div>
-  )
+  );
 }
-
-export default App;
